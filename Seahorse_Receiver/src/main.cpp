@@ -1,7 +1,6 @@
 #include "Telemetry.h"
-#include "Controls_Quad.h"
 #include "Navigation.h"
-
+#include "Controls_Quad.h"
 
 char MPin1 = 3; //Motor1
 char MPin2 = 5; //Motor2
