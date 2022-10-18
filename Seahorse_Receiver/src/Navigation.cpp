@@ -48,9 +48,9 @@ void Navigation::measurementIMU_BNO()
     vectorIMU.oldPsi = vectorIMU.psi;
     
 
-    vectorIMU.x = ((vectorIMU.u-vectorIMU.oldU)*diffTime) +  vectorIMU.x;
-    vectorIMU.y = ((vectorIMU.v-vectorIMU.oldV)*diffTime) +  vectorIMU.y;
-    vectorIMU.z = ((vectorIMU.w-vectorIMU.oldW)*diffTime) +  vectorIMU.z;;
+    vectorIMU.x = ((accel.x() - vectorIMU.oldAx) * diffTime * diffTime) + ((vectorIMU.u-vectorIMU.oldU)*diffTime) +  vectorIMU.x;
+    vectorIMU.y = ((accel.y() - vectorIMU.oldAy) * diffTime * diffTime) + ((vectorIMU.v-vectorIMU.oldV)*diffTime) +  vectorIMU.y;
+    vectorIMU.z = ((accel.z() - vectorIMU.oldAz) * diffTime * diffTime) + ((vectorIMU.w-vectorIMU.oldW)*diffTime) +  vectorIMU.z;;
     vectorIMU.phi = euler.roll;
     vectorIMU.theta = euler.pitch;
     vectorIMU.psi = euler.yaw;
