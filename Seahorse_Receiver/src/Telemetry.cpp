@@ -35,3 +35,8 @@ Data_received Telemetry::read()
     radio.read(&data_received,sizeof(Data_received));
     return data_received;
 }
+
+void Telemetry::write(Data_sent data_sent)
+{
+    radio.write(&data_sent,sizeof(Data_sent));
+}

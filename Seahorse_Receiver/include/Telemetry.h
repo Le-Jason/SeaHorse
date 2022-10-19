@@ -16,6 +16,24 @@ struct Data_received //struct of data to send over to reciever
     byte ch4;
 };
 
+struct Data_sent
+{
+    float phi;
+    float theta;
+    float psi;
+    float voltage;
+    float amps;
+    byte disarm;
+    float height;
+    float longitude;
+    float latitude;
+    float time;
+    float speed;
+    float distance;
+    float GPSsignal;
+    float waypoint;
+};
+
 class tele_pins{
     public:
         char radioCNSPin;
@@ -29,10 +47,12 @@ class Telemetry
         tele_pins Pins;
         RF24 radio;
         Data_received data_received;
+        Data_sent data_sent;
         Telemetry(char radioCNSPin, char radioCEPin, char ledModePin, char ledBattPin);
         virtual ~Telemetry() {};
         char available();
         Data_received read();
+        void write(Data_sent data_sent);
 };
 
 

@@ -18,6 +18,7 @@ Navigation nav;
 Controls_Quad controls(MPin1,MPin2,MPin3,MPin4);
 
 Data_received data_received;
+Data_sent data_sent;
 stateVector statevector;
 
 void setup() {
@@ -32,5 +33,6 @@ void loop() {
     statevector = nav.update();
     data_received = uplink.read();
     controls.update(data_received.ch1, data_received.ch2, data_received.ch3, data_received.ch4);
+    uplink.write(data_sent);
   }
 }
