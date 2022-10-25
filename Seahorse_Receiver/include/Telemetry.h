@@ -31,7 +31,7 @@ struct Data_sent
     float speed;
     float distance;
     float GPSsignal;
-    float waypoint;
+    int waypoint;
 };
 
 class tele_pins{
